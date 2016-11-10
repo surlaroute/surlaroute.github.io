@@ -136,7 +136,33 @@ $(function(){
     },function(){
     	$(this).find('.mask').hide()
     })
-    //登录框
+    //搜索框提示
+    $('#keyword').on('input',function(){  
+ 		var word = $('#keyword').val();
+ 		$('.word').text(word);
+ 		if(word == ''){
+ 			$('.search-list').hide();
+ 		}else{
+ 			$('.search-list').show();
+ 		}
+    });
+    $('.ac').mouseover(function(){
+    	$(this).addClass('selec').siblings().removeClass('selec')
+    }).click(function(){
+    	alert('正在努力搜索')
+    });
+    $('#keyword').blur(function(){
+    	var len = $('#keyword').val().length;
+    	if(len !== 0){
+    		$('.search-list').hide()
+    	}	
+    }).focus(function(){
+    	var len = $('#keyword').val().length;
+    	if(len !== 0){
+    		$('.search-list').show()
+    	}
+    });
+	//登录框
     $('.logb').click(function(){
     	$('.reg-mask').show();
     	$('#login').show().animate({
@@ -149,24 +175,89 @@ $(function(){
     		'height' : '0px'
     	},function(){
     		$('#login').hide()
-    	})
+    	});
+    	$('#user,#password').val(null)
+    	$('.user-tip,.pwd-tip').css('visibility','hidden');
     });
-    //搜索框提示
-    $('#keyword').on('input',function(e){  
- 		$('.search-list').show();
- 		var word = $('#keyword').val();
- 		$('.word').text(word);
-    });
-    $('.ac').bind({
-    	mouseover : function(){
-    	$(this).addClass('selec').siblings().removeClass('selec')
-    	},
-    	click : function(){
-    		alert('正在努力搜索')
+    //登录验证
+    var re = /[^\w\u4e00-\u9fa5]/g;
+    var ok1 = false;
+    var ok2 = false;
+    function findStr(str,n){
+    	var tmp = 0;
+    	for(var i = 0; i < str.length; i++){
+    		if(str.charAt(i) == n){
+    			tmp++
+    		}
     	}
-    })
-    $('#keyword').blur(function(){
-    	$('.search-list').hide();
+    	return tmp
+    };
+    //用户名
+    $('#user').blur(function(){
+    	var len = $(this).val().length;
+    	if(len == 0){
+    		$('.user-tip').css('visibility','visible')
+    	}else if(re.test(this.value)){
+    		$('.user-tip').css('visibility','visible');
+    		$('.user-tip').html('*含有非法字符');
+    	}else if(len < 4 || len > 10){
+    		$('.user-tip').css('visibility','visible');
+    		$('.user-tip').html('*用户名长度为4-10个字符');
+    	}else{
+    		$('.user-tip').css('visibility','hidden');
+    		ok1 = true;
+    	}	
+    });
+    $('#user').on('keyup',function(){
+    	var len = $(this).val().length;
+    	if(len>=4 && len<=10){
+    		$('.user-tip').css('visibility','hidden')
+    	}else{
+    		$('.user-tip').css('visibility','visible');
+    		$('.user-tip').html('*用户名长度为4-10个字符');
+    	}
+    });
+    //密码
+     $('#password').blur(function(){
+     	var pwd = $(this).val();
+    	var len = pwd.length;
+    	var m = findStr(pwd,pwd[0]);
+    	if(len == 0){
+    		$('.pwd-tip').css('visibility','visible')
+    	}else if(len < 6 || len > 18){
+    		$('.pwd-tip').css('visibility','visible');
+    		$('.pwd-tip').html('*密码长度为6-18位字符');
+    	}else if(m == len){
+    		$('.pwd-tip').css('visibility','visible');
+    		$('.pwd-tip').html('*不能全部用相同字符');
+    	}else{
+    		$('.pwd-tip').css('visibility','hidden');
+    		ok2 = true;
+    	}
+    });
+    $('#password').on('keyup',function(){
+    	var pwd = $(this).val();
+    	var len = pwd.length;
+    	var m = findStr(pwd,pwd[0]);
+    	if(len < 6 || len > 18){
+    		$('.pwd-tip').css('visibility','visible');
+    		$('.pwd-tip').html('*密码长度为6-18位字符');
+    	}else if(len>=6 && len<=18){
+    		$('.pwd-tip').css('visibility','hidden')
+    	}
+    });
+    //验证通过
+    $('#login-in').click(function(){
+    	var len1 = $('#user').val().length;
+    	var len2 = $('#password').val().length;
+    	if(len1 == 0 && len2 == 0){
+    		$('.user-tip,.pwd-tip').css('visibility','visible');
+            return false
+    	}else if(ok1 && ok2){
+            $('user-mes').submit();
+        }else{
+            return false;
+        }
     });
 
 
