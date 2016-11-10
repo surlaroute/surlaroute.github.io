@@ -72,16 +72,16 @@ $(function(){
 		$('.section5 .sec-content').css('height',maxHeight) //高度自适应！！
 	}
 	waterfall();
-	var dataInt = [{'src':'10.jpeg','tip':'爸爸去哪儿4','coll':'40','like':'12','user-img':'u0.png','uid':'cold','lei':'阿拉蕾'},
-				   {'src':'11.jpeg','tip':'手绘 时装 插画 设计','coll':'13','like':'3','user-img':'u1.jpeg','uid':'Arizonia','lei':'设计'},
-				   {'src':'12.jpeg','tip':'卷福【夏洛克 福尔摩斯】by 眠狼大大','coll':'32','like':'22','user-img':'u2.jpeg','uid':'哥斯拉-不说话','lei':'同人'},
-				   {'src':'13.jpeg','tip':'夏日','coll':'43','like':'12','user-img':'u3.jpeg','uid':'哈利','lei':'板绘'},
-				   {'src':'14.jpeg','tip':'董力阿拉蕾','coll':'30','like':'12','user-img':'u4.jpeg','uid':'Sab','lei':'综艺'},
-				   {'src':'15.jpeg','tip':'穿过发梢，是你的温柔','coll':'10','like':'1','user-img':'u5.jpeg','uid':'菲一般猫','lei':'少女✿像'},
-				   {'src':'16.jpeg','tip':'Harry Potter','coll':'21','like':'3','user-img':'u6.jpeg','uid':'古手','lei':'同人'},
-				   {'src':'17.jpeg','tip':'可爱浪漫樱花','coll':'30','like':'3','user-img':'u7.jpeg','uid':'车寅次郎','lei':'默认专辑'},
-				   {'src':'18.jpeg','tip':'…','coll':'13','like':'1','user-img':'u8.jpeg','uid':'神算Zzz','lei':'『慢】生活◕′小格调'},
-				   {'src':'19.jpeg','tip':'鲜明的色彩，大胆的笔触，亮丽的画面……阿尔巴尼亚艺术家Josef Kote的风景油画欣赏。','coll':'12','like':'3','user-img':'u9.jpeg','uid':'古手','lei':'妙笔美画'}
+	var dataInt = [{'src':'10.jpeg','tip':'爸爸去哪儿4','sj':'40','like':'12','user-img':'u0.png','uid':'cold','lei':'阿拉蕾'},
+				   {'src':'11.jpeg','tip':'手绘 时装 插画 设计','sj':'13','like':'3','user-img':'u1.jpeg','uid':'Arizonia','lei':'设计'},
+				   {'src':'12.jpeg','tip':'卷福【夏洛克 福尔摩斯】by 眠狼大大','sj':'32','like':'22','user-img':'u2.jpeg','uid':'哥斯拉-不说话','lei':'同人'},
+				   {'src':'13.jpeg','tip':'夏日','sj':'43','like':'12','user-img':'u3.jpeg','uid':'哈利','lei':'板绘'},
+				   {'src':'14.jpeg','tip':'董力阿拉蕾','sj':'30','like':'12','user-img':'u4.jpeg','uid':'Sab','lei':'综艺'},
+				   {'src':'15.jpeg','tip':'穿过发梢，是你的温柔','sj':'10','like':'1','user-img':'u5.jpeg','uid':'菲一般猫','lei':'少女✿像'},
+				   {'src':'16.jpeg','tip':'Harry Potter','sj':'21','like':'3','user-img':'u6.jpeg','uid':'古手','lei':'同人'},
+				   {'src':'17.jpeg','tip':'可爱浪漫樱花','sj':'30','like':'3','user-img':'u7.jpeg','uid':'车寅次郎','lei':'默认专辑'},
+				   {'src':'18.jpeg','tip':'…','sj':'13','like':'1','user-img':'u8.jpeg','uid':'神算Zzz','lei':'『慢】生活◕′小格调'},
+				   {'src':'19.jpeg','tip':'鲜明的色彩，大胆的笔触，亮丽的画面……阿尔巴尼亚艺术家Josef Kote的风景油画欣赏。','sj':'12','like':'3','user-img':'u9.jpeg','uid':'古手','lei':'妙笔美画'}
 				   ];
 	function scrollLoad(){
 		var lastBox = $('.section5 .sec-content').children('.box').last();
@@ -96,19 +96,76 @@ $(function(){
  					newImg = $('<img>').attr('src','img/'+$(item).attr('src')).appendTo($(newA)),
  					newPictips = $('<div>').addClass('pic-tips').html(item['tip']).appendTo($(newBox)),
  					newZan = $('<div>').addClass('zan').appendTo($(newBox)),
- 					newColl = $('<span>').addClass('coll').html(item['coll']).appendTo($(newZan)),
+ 					newColl = $('<span>').addClass('coll').html(item['sj']).appendTo($(newZan)),
  					newLike = $('<span>').addClass('like').html(item['like']).appendTo($(newZan)),
  					newWho= $('<div>').addClass('who').appendTo($(newBox)),
  					newUserImg = $('<img>').addClass('user-img').attr('src','img/'+$(item).attr('user-img')).appendTo($(newWho)),
  					newUserId = $('<div>').addClass('user-id').appendTo($(newWho)),
  					newAa = $('<a href="javascript:void(0)"></a>').html(item['uid']).appendTo($(newUserId)),
  					newlei = $('<div>').html('收集到 ').appendTo($(newWho)),
- 					newAaa = $('<a href="javascript:void(0)"></a>').html(item['lei']).appendTo($(newlei));
+ 					newAaa = $('<a href="javascript:void(0)"></a>').html(item['lei']).appendTo($(newlei)),
+                    newtt = $('<div>').addClass('tt').appendTo($(newBox)),
+                    newsj = $('<div>收集 </div>').addClass('sj').appendTo($(newtt)),
+                    newpl = $('<div>').addClass('pl').appendTo($(newtt)),
+                    newdz = $('<div>').addClass('dz').appendTo($(newtt)),
+                    newi = $('<i>').appendTo($(newsj)),
+                    newnum = $('<span>').addClass('num').html(item['sj']).appendTo($(newsj)),
+                    newspan1 = $('<span>').appendTo($(newpl)),
+                    newspan2 = $('<span>').appendTo($(newdz));
  			})
  			waterfall();
 		}
 	};
 	$(window).scroll(scrollLoad);
+    // 点赞与收藏
+    $('.section5').on('mouseover','.box',function(){
+        $(this).find('.tt').show()
+    });
+    $('.section5').on('mouseout','.box',function(){
+        $(this).find('.tt').hide()
+    })
+    var num = $('.num');
+    var coll = $('.coll');
+    for(var i=0; i<num.length; i++){
+        coll.eq(i).html(num.eq(i).html())
+    };
+    $(document).on('click','.sj',function(){
+        var coll = $(this).parent().parent().find('.coll');
+        var num = $(this).find('.num');
+        var x = $(this).find('span').html();
+        var ii = $(this).find('i');
+        if($(ii).hasClass('al')){
+            x-- ;
+            $(num).html(x);
+            $(coll).html(x);
+            $(ii).removeClass('al');
+        }else{
+            x++ ;
+            $(num).html(x)
+            $(coll).html(x);
+            $(ii).addClass('al');
+        } 
+    });
+    $(document).on('click','.dz',function(){
+        var like = $(this).parent().parent().find('.like');
+        var x = $(like).html();
+        var ss = $(this).find('span');
+        if($(ss).hasClass('ck')){
+            x-- ;
+            $(like).html(x);
+            $(ss).removeClass('ck');
+        }else{
+            x++ ;
+            $(like).html(x);
+            $(ss).addClass('ck');
+        }
+    });
+    $(document).on('click','.pl',function(){
+        $('.reg-mask').show();
+        $('#login').show().animate({
+            'height' : '506px'
+        })
+    })
 	//sidebar
 	function sidebar(){
 		var innerW = $(window).width();
@@ -259,6 +316,9 @@ $(function(){
             return false;
         }
     });
+    $('.more').click(function(){
+        alert(num.length)
+    })
 
 
 

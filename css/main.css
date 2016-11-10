@@ -407,6 +407,7 @@ div.hot-b{
 }
 .box{
     float: left;
+    position: relative;
     width: 222px;
     height: 100%;
     margin-right: 20px;
@@ -594,6 +595,71 @@ div.hot-b{
 .more a:hover{
 	text-decoration: none;
 	background-color: #1e9ed8;
+}
+/* 收藏点赞 */
+.tt{
+	position: absolute;
+	left: 1px;
+	top: 0;
+	width: 208px;
+	height: 30px;
+	padding: 8px 7px;
+	background: url(../img/icon2.png) 0 -72px;
+	display: none;
+}
+.sj{
+	float: left;
+	width: auto;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #fff;
+	background-color: #f46;
+	border-radius: 2px;
+	cursor: pointer;
+}
+.sj:hover{
+	background-color: #e03c5a;
+}
+.sj i{
+	float: left;
+	margin: 7px 6px;
+	width: 19px;
+	height: 16px;
+	background: url(../img/sj.png) no-repeat;
+}
+.sj i.al{
+	background: url(../img/sj-1.png) no-repeat;
+}
+.sj .num{
+	padding-right: 6px;
+}
+.dz,.pl{
+	float: right;
+	background-color: #fff;
+	border-radius: 2px;
+	cursor: pointer;
+}
+.dz:hover,.pl:hover{
+	background-color: #f0f0f0;
+}
+.pl{
+	margin-left: 6px;
+}
+.dz span{
+	display: inline-block;
+	width: 35px;
+	height: 30px;
+	background: url(../img/dz.png) no-repeat center;
+}
+.dz span.ck{
+	background: url(../img/dz-1.png) no-repeat center;
+}
+.pl span{
+	display: inline-block;
+	width: 35px;
+	height: 30px;
+	background: url(../img/pl.png) no-repeat center;
 }
 /* sidebar */
 #sidebar{
