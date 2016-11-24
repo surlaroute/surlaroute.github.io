@@ -140,6 +140,9 @@ p{
 #contact a{
 	color: #444;
 }
+#contact a:hover{
+	color: #c96856;
+}
 @media (max-width: 948px){
 	.homename{
 		margin-left: -375px;
