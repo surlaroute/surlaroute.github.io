@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1"> 
+	<title>天梯数据 iOS</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/ios.css">	
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="90">
+	<nav class="navbar navbar-fixed-top" id="header">
+		<div class="container navbar">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand"><img src="img/logo.png" alt="天梯数据"></a>
+				<button type="button" class="navbar-toggle" id="sidemenu">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse pull-right">
+				<ul class="nav navbar-nav pull-right">
+					<li><a href="javascript:void(0)" class="on">iOS</a></li>
+					<li><a href="javascript:void(0)">Android</a></li>
+					<li><a href="javascript:void(0)">Unity</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container" id="page-body">
+	    <div class="row">
+	        <div class="col-xs-3" id="myScrollspy">
+	            <ul class="nav nav-tabs nav-stacked" data-spy="affix">
+	                <li class="active"><a href="#sec1">获取 APPKEY</a></li>
+	                <li><a href="#sec2">iOS SDK 导入</a></li>
+					<li><a href="#sec3">iOS SDK 初始化</a></li>
+					<hr>
+					<li>
+						<a href="#sec4">关卡与页面</a>
+						<ul class="nav minav">
+							<li class="active"><a href="#onSubStart">onSubStart</a></li>
+							<li><a href="#onSubEnd">onSubEnd</a></li>
+							<li><a href="#onPassFail">onPassFail</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#sec5">关卡与页面子事件</a>
+						<ul class="nav minav">
+							<li><a href="#onBuy">onBuy</a></li>
+							<li><a href="#onExchange">onExchange</a></li>
+							<li><a href="#onUse">onUse</a></li>
+							<li><a href="#onCollect">onCollect</a></li>
+							<li><a href="#onReward">onReward</a></li>
+							<li><a href="#onShare">onShare</a></li>
+							<li><a href="#onEvent">自定义事件</a></li>
+						</ul>
+					</li>
+					<li><a href="#sec6">在线参数</a></li>
+					<li><a href="#sec7">状态数据统计</a></li>
+					<li><a href="#sec8">开发者</a></li>
+	            </ul>
+	        </div>
+	        <div class="col-xs-9 sec">
+				<div id="sec1">
+					<h4>获取 APPKEY</h4>
+					<p>1，登录 天梯数据 后台，进入我的应用界面，在应用汇总窗口点击 “创建新应用”。如图：</p>
+					<img src="img/get-appkey-1.png">
+					<p>2，输入应用的相关信息后，点击 “提交应用”，即可。如图：</p>
+					<img src="img/get-appkey-2.png">
+					<p>3，得到唯一的 APPKEY，接入 SDK 时使用。如图：</p>
+					<img src="img/get-appkey-3.png">
+				</div>
+				<div id="sec2">
+					<h4>iOS SDK 导入</h4>
+					<p>以 Xcode 为例：</p>
+					<h6>1，目录下包含下面文件：</h6>
+					<pre>
+
+libs/ios/liblogger.a
+libs/ios/liblogger_c11.a
+AppLogger.h
+					</pre>
+					<p>在 liblogger.a 和 liblogger_c11.a 之间，根据你的编译设置选择一个，连同 AppLogger.h 放到工程项目目录下，并将 .a 和 .h 文件拖拽到项目工程中。</p>
+					<p>（liblogger.a 和 liblogger_c11.a 的选择详见下面的说明。）</p>
+					<h6>2，选择 liblogger.a 或者 liblogger_c11.a</h6>
+					<p>由于开发者选用的 c++ 标准库可能有所不同，所以我们对 liblogger 也做了对应的区分，分别为：</p>
+					<p>2.1 如果使用 GNU C++ standard library (如下图)，使用 liblogger.a。</p>
+					<img src="img/C99.png">
+					<p>2.2 如果使用 LLVM C++ standard library (如下图)或者 Complier Default，使用 liblogger_c11.a。</p>
+					<img src="img/C11.png">
+					<div class="callout">
+						提示: 在 Build Settings 中搜索 C++ standard library，即可查看自己的设置
+					</div>
+					<h6>3，添加依赖框架</h6>
+					<p>在 TARGETS > Build Phases > Link Binary With Libraries 下添加下面四个 framework：</p>
+					<pre>
+
+SystemConfiguration.framework
+CoreTelephony.framework
+Security.framework
+CFNetwork.framework
+					</pre>
+					<h6>4，代码中初始化 SDK</h6>
+					<p>在 didFinishLaunchingWithOptions 或者 ViewController 的 viewDidLoad 下添加 AppLogger::init。</p>
+					<div class="callout">
+						提示：如果与 Android 共享代码，请保证此函数只在 iOS 中执行
+					</div>
+				</div>
+				<div id="sec3">
+					<h4>iOS SDK 初始化</h4>
+					<h6>定义</h6>
+					<pre>
+
+void init (const char* appId, const char* appChannel=NULL);
+					</pre>
+					<div class="callout callout-info">
+						<p>appId: 应用的唯一标识，在<a href="http://dev.tianti.com">天梯数据后台</a>创建应用时自动生成。具体详见：<a href="#get-appkey">获取 APPKEY</a></p>
+						<p>appChannel: 应用分发渠道名 (iOS 版本通常指定为 "AppStore")</p>
+					</div>
+					<h6>功能</h6>
+					<p>初始化数据统计服务</p>
+					<h6>用法</h6>
+					<p>必须指定 appId 和 appChannel，通常指定 appChannel 为"AppStore"</p>
+					<div class="callout">
+						<p>在程序启动的时候调用初始化接口，仅在第一次调用时有效，确保在调用其他接口之前正确调用 init 接口</p>
+						<p>如果需要临时禁用天梯数据相关服务，不需要逐一注释相关代码，只需要注释掉 init 函数调用，天梯数据 将不会记录，保存，传输任何数据，所有接口调用直接忽略</p>
+					</div>
+					<p>现在可以登录 天梯数据 后台，然后运行您的游戏，即可实时看到当前启动游戏的记录。实时心跳数据，如图：</p>
+					<img src="img/app-test.png">
+					<h3>恭喜，基本的统计 SDK 已经接入完成！</h3>
+					<div class="callout">
+						如果您的项目是关卡类型游戏或者需要统计分析移动应用的具体页面数据，您可以继续接入 “关卡与页面”。
+					</div>
+					<div class="callout">
+						初次接入天梯数据 SDK 建议开启调试信息输出接口 “setDebugLog”
+					</div>
+				</div>
+				<div id="sec4">
+					<h4>关卡与页面</h4>
+					<h5 id="onSubStart">关卡或页面开始 onSubStart</h5>
+					<h6>定义</h6>
+					<pre>
+
+void onSubStart (const char* name);	
+					</pre>
+					<h6>功能</h6>
+					<p>进入一个关卡或页面</p>
+					<h6>用法</h6>
+					<p>在进入一个关卡或页面时，调用 onSubStart 接口</p>
+					<p>onSubStart 事件接口可以帮助统计系统获得关卡 新增用户，活跃用户，启动次数，进入次数，离开次数，滞留人数，最大关卡，最后关卡 等各种指标数据。如图：</p>
+					<img src="img/on-sub-start.png">
+					<div class="callout callout-danger">
+						<p class="txt-danger">关卡/页面可以嵌套，但不可以交叉</p>
+						<p>onSubStart 的第一个参数 stage 是关卡的名称， 用版本号的形式。例如："1"; "2"; "2.1"; "3"; "3.2"; "3.3" ...， 如果是字母开始的名称（例如：“MainScene”），将作为页面统计</p>
+					</div>
+					<h5 id="onSubEnd">关卡或页面结束 onSubEnd</h5>
+					<h6>定义</h6>
+					<pre>
+
+void onSubEnd (const char* name);
+					</pre>
+					<h6>功能</h6>
+					<p>退出指定关卡或页面</p>
+					<h6>用法</h6>
+					<p>在退出一个关卡或页面时，调用 onSubEnd 接口</p>
+					<div class="callout callout-danger">
+						<p>onSubEnd 必须与 onSubStart 匹配</p>
+						<p>onSubEnd 不能用 STAGE_LAST 参数，必须指定和对应 onSubStart 一样的关卡名称</p>
+					</div>
+					<h5 id="onPassFail">关卡过关或失败 onPassFail</h5>
+					<h6>定义</h6>
+					<pre>
+
+void onPassFail (bool bPass);
+					</pre>
+					<h6>功能</h6>
+					<p>过关或失败</p>
+					<h6>用法</h6>
+					<p>关卡过关或失败时，立即调用 onPassFail 接口</p>
+					<div class="callout callout-danger">
+						<p>onPassFail 在 onSubStart 与 onSubEnd 之间调用</p>
+					</div>
+					<div class="callout">
+						<p>onPassFail 事件接口可以帮助统计系统获得关卡的难度等各种细节信息，例如，过关时间，失败时间，难度 等数据</p>
+						<p>关卡过关失败数据对于分析关卡数据非常有意义，强烈建议开发者及时并正确调用 onPassFail 接口</p>
+					</div>
+				</div>
+				<div id="sec5">
+					<h4>关卡与页面子事件</h4>
+					<p class="txt-danger">所有子事件缺省都算在最后关卡中（STAGE_LAST）</p>
+					<p class="txt-danger">如果需要把子事件计算到特定关卡或页面，请指定子事件中的 stage 参数</p>
+					<h5 id="onBuy">现金购买 onBuy</h5>
+					<h6>定义</h6>
+					<pre>
+
+void onBuy (const char* payService, const char* item, int count, float value
+					</pre>
+					<h6>功能</h6>
+					<p>现金购买虚拟币， onBuy 事件接口提交的数据，将作为收入数据，在后端报表中用各种收入图表展现。</p>
+					<h6>用法</h6>
+					<p>当用现金进行购买时，请调用 onBuy 事件接口
+onBuy 事件缺省统计到最后关卡中，所以你可以看到各个关卡的各种与收入相关的数据，如，收入，新增付费用户，活跃付费用户，当天购买用户</p>
+					<div class="callout callout-info">
+						<p>payService: 支付服务类型，例如：支付宝, paypal, appstore, …</p>
+						<p>item: 购买的项目</p>
+						<p>count: 购买数量，通常是1</p>
+						<p>value: 购买总价</p>
+						<p>stage: 发生事件时的关卡位置，缺省为最后关卡（STAGE_LAST）</p>
+					</div>
+					<h5 id="onExchange">虚拟货币交易 onExchange</h5>
+					<h6>定义</h6>
+					<pre>
+
+void onExchange (const char* item, int count, const char* stage = STAGE_LAST);
+					</pre>
+					<h6>功能</h6>
+					<p>虚拟币兑换为道具</p>
+					<h6>用法</h6>
+					<p>数据分析人员可以观察到各个关卡的兑换次数，兑换项目等详细数据，以及各个数据的分布状况</p>
+					<div class="callout callout-info">
+						<p>item: 兑换的项目</p>
+						<p>count: 兑换数量，通常是1</p>
+						<p>value: 购买总价</p>
+						<p>stage: 发生事件时的关卡位置，缺省为最后关卡（STAGE_LAST）</p>
+					</div>
+					<h5 id="onUse">道具使用 onUse</h5>
+					<h6>定义</h6>
+					<pre>
+
+void onUse (const char* item, int count, const char* stage = STAGE_LAST);
+					</pre>
+					<h6>功能</h6>
+					<p>使用道具或点数</p>
+					<div class="callout callout-info">
+						<p>item: 使用的物品(或点数)名称，例如道具名称</p>
+						<p>count: 使用的物品的数量</p>
+						<p>stage: 使用的位置，关卡或页面名称</p>
+					</div>
+					<h5 id="onCollect">收集 onCollect</h5>
+					<h6>定义</h6>
+					<pre>
+
+void onCollect (const char* item, int count, const char* stage = STAGE_LAST);
+					</pre>
+					<h6>功能</h6>
+					<p>收集点数/道具</p>
+					<div class="callout callout-info">
+						<p>item: 收集的物品(或点数)名称，例如道具名称</p>
+						<p>count: 收集的物品的数量</p>
+						<p>stage: 收集的位置，关卡或页面名称</p>
+					</div>
+					<h5 id="onReward">奖励 onReward</h5>
+					<h6>定义</h6>
+					<pre>
+
+void onReward (const char* item, int count, const char* stage = STAGE_LAST);
+					</pre>
+					<h6>功能</h6>
+					<p>奖励虚拟币或道具</p>
+					<h6>用法</h6>
+					<p>发生奖励行为时，立即调用 onReward 接口</p>
+					<div class="callout callout-info">
+						<p>item: 奖励的物品(或点数)名称，例如道具名称</p>
+						<p>count: 奖励的物品的数量</p>
+						<p>stage: 奖励的位置，关卡或页面名称</p>
+					</div>
+					<h5 id="onShare">分享 onShare</h5>
+					<h6>定义</h6>
+					<pre>
+
+void onShare (const char* service, const char* item, const char* stage = STAGE_LAST);
+					</pre>
+					<h6>功能</h6>
+					<p>分享到社交服务上</p>
+					<h6>用法</h6>
+					<p>当用户进行分享操作时，立即调用 onShare 事件接口</p>
+					<div class="callout callout-info">
+						<p>service: 分享服务的名称，例如，weibo, qq, weixin, …</p>
+						<p>item: 分享的项目名称</p>
+						<p>stage: 分享的位置，关卡或页面名称</p>
+					</div>
+					<h5 id="onEvent">自定义事件 onEvent</h5>
+					<h6>定义</h6>
+					<pre>
+
+void onEvent (const char* name, const char* stage = STAGE_LAST);
+					</pre>
+					<h6>功能</h6>
+					<p>用户自定义事件</p>
+					<h6>用法</h6>
+					<p>自定义事件将以列表形式罗列出来，并显示最近几天的自定义事件变化</p>
+					<p>自定义事件可以是一个简单的名称，例如 dm_show，也可以是包含 / 的多级名称，例如 main/dm_show, main/dm_close, …</p>
+					<p>对于 main/dm_show 形式的事件，在统计报表中将把所有 main/ 开头的时间一起对比显示。</p>
+					<p>所以如果想对比观察一组事件，可以给这些事件一个一样的分组名称作为前缀，并用 / 分隔。</p>
+					<p>事件列表：</p>
+					<img src="img/on-event-list.png">
+					<p>相同前缀的事件之间对比：</p>
+					<img src="img/on-event-chart.png">
+				</div>
+				<div id="sec6">
+					<h4>在线参数</h4>
+					<h5>启用在线参数</h5>
+					<h6>定义</h6>
+					<pre>
+
+void enableOnlineConfig ();
+					</pre>
+					<h6>功能</h6>
+					<p>启用在线参数同步功能，缺省不启用在线参数功能</p>
+					<h6>用法</h6>
+					<p>在 init 接口后调用 enableOnlineConfig</p>
+					<div class="callout">
+						<p>在线参数在应用统计的后台管理，<span class="txt-danger">添加参数时可以指定当前参数的有效期。</span></p>
+						<p>客户端每次启动或者从后台切换到前台时自动更新在线参数，并且最小更新间隔为15分钟。</p>
+					</div>
+					<h5>获取在线参数</h5>
+					<h6>定义</h6>
+					<pre>
+
+string getOnlineConfig (string key, string defaultValue="");
+					</pre>
+					<h6>功能</h6>
+					<p>获得某个在线参数的具体数据，如果没有指定，返回 defaultValue</p>
+					<h6>用法</h6>
+					<p>先调用 enableOnlineConfig，然后可以任意多次调用 getOnlineConfig</p>
+					<div class="callout">
+						<p>服务器可以指定在线参数的 key 和 数据，类型由客户端自己处理</p>
+						<p>服务器端可以指定在线参数的有效期，如果在有效期之外，相当于服务器没有定义该参数，返回缺省值</p>
+					</div>
+				</div>
+				<div id="sec7">
+					<h4>状态数据统计</h4>
+					<h5>清除状态数据</h5>
+					<h6>定义</h6>
+					<pre>
+
+void clearStatus();
+					</pre>
+					<h6>功能</h6>
+					<p>清除所有状态数据</p>
+					<div class="callout callout-danger">
+						<p>在需要清除所有状态数据时，通常不需要调用</p>
+					</div>
+					<h5>设置状态数据</h5>
+					<h6>定义</h6>
+					<pre>
+
+void setStatus(const char* key, int value, const char* distribution = NULL);
+					</pre>
+					<h6>功能</h6>
+					<p>设置状态数据，服务器端将对状态数据自动分区统计，或根据指定的区统计</p>
+					<p>例如：玩家当前有多少宝石，用了多少宝石，收集了多少宝石等等这类长期累积的数据可以通过 setStatus 的接口统计。</p>
+					<h6>用法</h6>
+					<p>通常在 init 之后尽快调用 setStatus 接口，把客户端的累计状态数据汇报给服务器</p>
+					<p>状态数据每天第一次启动的时候提交到服务器</p>
+					<div class="callout callout-danger">
+						<p>状态数据设置后会保存下来，下次启动如果没有更新，自动使用之前设置的数据，除非重新设置或clearStatus</p>
+					</div>
+					<div class="callout">
+						<p>通常在应用启动后，客户端持续状态数据加载后立即调用 AppLogger::setStatus 接口</p>
+						<p>持续状态变更时也立即调用 AppLogger::setStatus 接口</p>
+						<p>SDK 在每天第一次启动时自动同步数据到服务器，不会导致数据重复统计</p>
+					</div>
+				</div>
+				<div id="sec8">
+					<h4>开发者</h4>
+					<h5>启用错误统计</h5>
+					<h6>定义</h6>
+					<pre>
+
+void enableCrashReport();
+					</pre>
+					<h6>功能</h6>
+					<p>启用错误统计，捕捉应用中发生崩溃时的堆栈信息，用于定位程序中引起错误的代码，缺省为不启用崩溃统计</p>
+					<h6>用法</h6>
+					<p>在 init 接口之后调用 enableCrashReport</p>
+					<div class="callout callout-danger">
+						<p>需要把其他统计服务的错误收集功能关闭，例如：</p>
+						<p>友盟：setCrashReportEnabled</p>
+						<p>TalkingData：setExceptionReportEnabled</p>
+					</div>
+					<h5>日志输出设置</h5>
+					<h6>定义</h6>
+					<pre>
+
+void setDebugLog (int mode, int level);
+					</pre>
+					<h6>功能</h6>
+					<p>调试信息输出控制</p>
+					<h6>用法</h6>
+					<p>mode 与 level 具体定义：</p>
+					<pre>
+						
+#define DEBUG_OFF       0    //不输出调试信息
+#define DEBUG_LOGCAT    1    //输出到 logcat(用于联机调试)
+#define DEBUG_LOGFILE   2    //输出到 文件（applogger.log）, 用于脱机调试
+#define DEBUG_LOGALL    3    //输出到 logcat 和 文件（applogger.log）
+
+#define DEBUG_LEVEL_VERBOSE    0    //输出所有级别调试信息
+#define DEBUG_LEVEL_INFO       1    //输出INFO级别以上调试信息
+#define DEBUG_LEVEL_WARN       2    //输出WARN级别以上调试信息
+#define DEBUG_LEVEL_ERROR      3    //输出ERROR级别以上调试信息		
+					</pre>
+					<div class="callout">
+						<p>开发者可以使用 AppDebug::info, AppDebug::warn, AppDebug::error 等接口输出调试信息到指定输出上</p>
+					</div>
+				</div>
+	        </div>
+	    </div>
+	</div>
+	<ul id="sidebar" class="visible-xs hide">
+		<li class="quickto"><a href="index.html#features">特性</a></li>
+		<li><a href="ios.html" class="on">文档</a></li>
+		<li><a href="javascript:void(0)">SDK</a></li>
+		<li><a href="javascript:void(0)">登录</a>|<a href="javascript:void(0)">注册</a></li>
+	</ul>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/index.js"></script>
+</body>
+</html>

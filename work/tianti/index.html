@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1"> 
+	<title>天梯数据</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">	
+</head>
+<body>
+	<nav class="navbar navbar-fixed-top" id="header">
+		<div class="container navbar">
+			<div class="navbar-header">
+				<a href="javascript:void(0)" class="navbar-brand"><img src="img/logo.png" alt="天梯数据"></a>
+				<button type="button" class="navbar-toggle" id="sidemenu">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse pull-right">
+				<ul class="nav navbar-nav pull-right">
+					<li class="quickto"><a href="#features">特性</a></li>
+					<li><a href="ios.html">文档</a></li>
+					<li><a href="javascript:void(0)">SDK</a></li>
+					<li>
+						<a href="#log" data-toggle="modal">登录</a>|
+						<a href="#reg" class="reg" data-toggle="modal">注册</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="carousel">
+		<div class="container inner-view">
+			<h3>移动游戏深度分析工具</h3>
+			<p>特别针对关卡类型游戏，对比分析20多项关卡数据指标</p>
+			<p>增强渠道统计，详细分析不同国家地区数据表现</p>
+			<p>在线参数，远程控制游戏内部参数</p>
+			<p>实时分析，0毫秒延迟</p>
+			<a href="javascript:void(0)">查看演示数据</a>
+		</div>
+		<div class="down quickto">
+			<a href="#features">
+				<span class="fa fa-angle-down"></span>
+			</a>
+		</div>
+	</div>
+	<div id="features">
+		<div class="platform">
+			<p class="title">支持主流游戏开发平台</p>
+			<ul class="platform-link">
+				<li class="ios"><a href="ios.html"><i class="fa fa-apple"></i></a></li>
+				<li><a href="javascript:void(0)"><i class="fa fa-android"></i></a></li>
+				<li><a href="javascript:void(0)"><i class="fa fa-connectdevelop"></i></a></li>
+				<li><a href="javascript:void(0)"><i class="fa fa-drupal"></i></a></li>
+				<li class="lua"><a href="javascript:void(0)"><i class="fa fa-gg"></i></a></li>
+			</ul>
+			<p class="sub-title">各平台接口一致，调用结构简单明了，方便开发者快速集成</p>
+		</div>
+		<div class="section">
+			<div class="container">
+				<div class="sec-txt-l col-md-6">
+					<h3>最详细的关卡型游戏数据分析</h3>
+					<p>统计各个关卡的新增玩家，活跃玩家，启动次数，时长，通关率/难度等20多项数据指标。</p>
+					<p>分析关卡的玩家分布，玩家滞留，留存流失 等高级指标，开发者可以直接看到游戏的流失点，通过各个指标交叉对比寻找流失原因。</p>
+				</div>
+				<div class="sec-img-r col-md-6"><img src="img/analy-img.png"></div>
+			</div>
+		</div>
+		<div class="section bluebg">
+			<div class="container">
+				<div class="sec-img-l col-md-6"><img src="img/filter-img.png"></div>
+				<div class="sec-txt-r col-md-6">
+					<h3>简便的关卡指标对比</h3>
+					<p>产品运营人员可以观察每个关卡的购买，奖励，道具使用等玩家行为，通过对比分析各个指标数据，改进游戏的难度节奏，优化游戏内部机制。</p>
+					<p>另外支持关卡过滤查询，可以对关卡进行过滤，分组合并，更灵活地分析。</p>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="container">
+				<div class="sec-txt-l col-md-6">
+					<h3>游戏的平衡</h3>
+					<p>收集宝石，道具，金币，体力等平衡性数据信息，了解道具和物品产出与消耗情况。开发者可以更精确的进行数值平衡设计，优化游戏内付费商品，带来更好的收益。</p>
+				</div>
+				<div class="sec-img-r col-md-6"><img src="img/game-balance.png"></div>
+			</div>
+		</div>
+		<div class="section bluebg">
+			<div class="container">
+				<div class="sec-img-l col-md-6"><img src="img/player.png"></div>
+				<div class="sec-txt-r col-md-6">
+					<h3>玩家行为</h3>
+					<p>运营人员可以观察每个关卡上发生的购买，道具，奖励，使用等玩家行为，通过对比分析各个指标，改进游戏的难度节奏，优化支付等行为。</p>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="container">
+				<div class="sec-txt-l col-md-6">
+					<h3>渠道 +</h3>
+					<p>游戏在不同国家地区的表现差异很大。当您的游戏在全球发行渠道发布时，我们可以将国家地区作为渠道，仔细观察游戏在各个国家的数据差异，尤其适合在 App Store, Google Play 全球发布的应用。</p>
+					<p>针对推广链接转化的玩家可作为独立渠道进行跟踪统计，不仅仅统计转化率，作为一个渠道长期跟踪分析这部分玩家质量。</p>
+				</div>
+				<div class="sec-img-r col-md-6"><img src="img/channel.png"></div>
+			</div>
+		</div>
+		<div class="section bluebg">
+			<div class="container">
+				<div class="sec-img-l col-md-6"><img src="img/online.png"></div>
+				<div class="sec-txt-r col-md-6">
+					<h3 class="last-h3">在线参数</h3>
+					<p>远程控制游戏内部参数，真正做到实时、远程、有效期可控。</p>
+				</div>
+			</div>
+		</div>
+		<div class="section mobile">
+			<div class="container">
+				<div class="sec-txt-l col-md-6">
+					<h3>移动 App</h3>
+					<p>在手机、iPad 上随时访问数据</p>
+					<div>
+						<div class="down-link">
+							<a href="javascript:void(0)" class="ios-link"><i class="fa fa-apple"></i><span>App Store 下载</span></a>
+							<a href="javascript:void(0)" class="andr-link"><i class="fa fa-android"></i><span>Android 下载</span></a>
+						</div>
+						<div class="code-pic"><img src="img/qr-code-app.png"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="intro">
+			<div>
+				<img src="img/footer-logo.png">
+				<p>特别针对关卡型移动游戏统计</p>
+			</div>
+			<div>
+				<a href="javascript:void(0)" class="link1">立即查看演示数据</a>
+				<a href="javascript:void(0)" class="link2">快速开始</a>
+			</div>
+		</div>
+		<div class="info">
+			<p>合作邮箱：support@tianti.com | 开发者QQ群：308944898 | 技术支持QQ：2803816871</p>
+			<p>Copyright © 2016 Tianti.com | 京ICP备16024988号-2</p>
+		</div>
+	</div>
+	<ul id="sidebar" class="visible-xs hide">
+		<li class="quickto"><a href="#features">特性</a></li>
+		<li><a href="ios.html">文档</a></li>
+		<li><a href="javascript:void(0)">SDK</a></li>
+		<li><a  href="#log" data-toggle="modal">登录</a>|<a  href="#reg" data-toggle="modal">注册</a></li>
+	</ul>
+	<div class="modal fade container" id="log" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+					</button>
+					<div class="link-box">
+						<a href="javascript:void(0)" value="log" class="on">登录</a>|<a href="javascript:void(0)" value="reg">注册</a>
+					</div>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form" action="" method="post">
+						<div class="alert alert-warning lostinfo">
+							警告：
+						</div>
+						<div class="form-group">
+							<input type="email" id="email" name="email" class="form-control input-lg" placeholder="请输入邮箱地址">
+						</div>
+						<div class="form-group">
+							<input type="password" id="password" name="password" class="form-control input-lg" placeholder="请输入密码">
+						</div>
+						<div class="form-group">
+							<input type="submit" id="login" class="btn btn-lg btn-block" value="登录">
+						</div>
+						<div class="form-group">
+							<a href="javascript:void(0)" class="forgot-pwd pull-right">忘记密码</a>
+						</div>
+					</form>
+					<div class="demo"><a href="javascript:void(0)">查看演示数据</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade container" id="reg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+					</button>
+					<div class="link-box">
+						<a href="javascript:void(0)" value="log">登录</a>|<a href="javascript:void(0)" value="reg" class="on">注册</a>
+					</div>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form" action="" method="post">
+						<div class="alert alert-warning lostinfo">
+							警告：
+						</div>
+						<div class="form-group">
+							<input type="email" id="email-reg" name="email-reg" class="form-control input-lg" placeholder="请输入邮箱地址">
+						</div>
+						<div class="form-group">
+							<input type="password" id="password-reg" name="password-reg" class="form-control input-lg" placeholder="请输入密码">
+						</div>
+						<div class="form-group">
+							<input type="password" id="confirm-pwd" name="confirm-pwd" class="form-control input-lg" placeholder="确认密码">
+						</div>
+						<div class="form-group">
+							<input type="submit" id="register" class="btn btn-lg btn-block" value="注册">
+						</div>
+					</form>
+					<div class="demo"><a href="javascript:void(0)">查看演示数据</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/index.js"></script>
+	<script type="text/javascript">
+		$(window).scroll(function(){
+			var STop = $(document).scrollTop();
+			if(STop>=100){
+				$('#header').css({'background-color':'#36679c'})
+			}else{
+				$('#header').css({'background-color':'#48609e'})
+			}
+		});
+	</script>
+</body>
+</html>
