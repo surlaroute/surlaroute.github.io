@@ -10,7 +10,7 @@ body {
     color: #444;
     letter-spacing: 2px;
 }
-a{
+a{	color: #444;
 	text-decoration: none;
 }
 ul,li {
