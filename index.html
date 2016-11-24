@@ -1,107 +1,87 @@
 <!doctype html>
 <html>
 <head>
-    <title>朱思琦的简历</title>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1"> 
+    <title>朱思琦的简历</title>
+    <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-    <div class="impress-not-supported">
-        <div class="fallback-message">
-            <p>你的浏览器<b>不支持</b> impress.js, 所以当前展示的是简化版。</p>
-            <p>为了获得更好的体验，请使用最新的 <b>Chrome</b>, <b>Safari</b> 或者 <b>Firefox</b> 浏览器。</p>
-        </div>
+    <div class="page" id="home">
+        <img src="img/home.png" alt="Sur La Route">
+        <p class="homename">Sur La Route</p>
+        <p class="homeinfo">- 做有趣的事 -</p>
     </div>
-    <div id="impress">
-        <div class="step" data-x="0" data-y="0">
-            <div><img src="img/pic.jpeg" class="pic"></div>
-			<h1>朱思琦</h1>
-			<p>求职意向：前端工程师</p>
-			<p>- 做有趣的事 -</p>
-			<p class="tel">15576029193</p>
-            <p id="tip">请使用空格键或方向键来控制吧~</p>
-        </div>
-        <div class="step" data-x="500" data-y="0">
-            <h1>专业技能</h1>
-			<span>HTML</span>
-			<span>CSS</span>
-			<span>JavaScript</span>
-			<span>jQuery</span>
-            <span>JSON</span>
-            <span>AJAX</span>
-			<span>Bootstrap</span>
-            <p>虽然会的</p>
-        </div>
-        <div class="step" data-x="500" data-y="-400">
-            <h1>教育经历</h1>
-            <p>2010.09-2014.06</p>
-            <p>湖南吉首大学</p>
-            <p>护理学</p>
-            <p>全日制本科</p>
-            <p>三百六十行，行行出码农</p>
-        </div>
-        <div class="step" data-x="500" data-y="-800" data-scale="0.5">
-            <h1>工作经验</h1>
-            <p>2015.04-2016.04</p>
-            <p>湖南省岳阳市一人民医院-临床护士</p><br>
-            <p>2016.07-2016.10</p>
-            <p>长沙温思顿英语-行政</p>
-        </div>
-        <div class="step" data-x="0" data-y="-800" data-rotate="90">
-            <h1>作品</h1>
-            <div class="work">
-                <a href="work/bilibili/index.html" target="_blank">
-                    <img src="img/1.jpg">
-                    <div class="info">仿哔哩哔哩首页</div>
-                </a>
-            </div>
-            <div class="work">
-                <a href="work/duitang/index.html" target="_blank">
-                    <img src="img/2.jpg">
-                    <div class="info">仿堆糖网首页</div>
-                </a>
-            </div>
-            <div class="work">
-                <a href="work/tianti/index.html" target="_blank">
-                    <img src="img/3.jpg">
-                    <div class="info">仿天梯数据,响应式</div>
-                </a>
-            </div>
-        </div>
-        <div class="step" data-x="-1200" data-y="0" data-rotate-x="30" data-rotate-y="-30" data-rotate-z="90" data-scale="4">
-            <h1>快把我收进碗里吧！</h1>
-            <p>15576029193</p>
-            <a href="mailto:foreverymorning@163.com">foreverymorning@163.com</a>
-        </div>
-        <!-- darren code -->
-        <div id="overview" class="step" data-x="-200" data-y="-500" data-scale="3"></div>
+    <div class="page" id="work">
+        <img src="img/pic.jpeg" class="mypic">
+        <h1>朱思琦</h1>
+        <p class="myage">24岁</p>
+        <p>求职意向：前端工程师</p>
+        <p class="tel">15576029193</p>
+        <h1 class="skill">专业技能</h1>
+        <p>HTML CSS JavaScript</p>
+        <p>jQuery JSON AJAX Bootstrap</p>
     </div>
+    <div class="page" id="exp">
+        <h1 class="mywork">作品</h1>
+        <p class="works">
+            <a href="work/tianti/index.html" target="_blank" class="work0"><span>仿天梯数据-响应式</span></a>
+            <a href="work/duitang/index.html" target="_blank" class="work1"><span>仿堆糖网首页</span>
+            </a>
+            <a href="work/bilibili/index.html" target="_blank" class="work2"><span>仿bilibili首页</span>
+            </a>
+        </p>    
+    </div>
+    <div class="page" id="contact">
+        <h1 class="myexp">教育经历</h1>
+        <p>2010.09-2014.06</p>
+        <p>湖南吉首大学</p>
+        <p>护理学</p>
+        <p>全日制本科</p>
+        <h1>工作经历</h1>
+        <p>2015.04-2016.05</p>
+        <p>湖南省岳阳市一人民医院</p>
+        <p>临床护士</p>
+        <p>2016.07-2016.10</p>
+        <p>长沙温思顿英语</p>
+        <p>行政</p>
+        <h1>三百六十行，行行出码农。快把我收进碗里吧！</h1>
+    </div>
+    <nav class="sidebar">
+        <div class="menubtn"></div>
+        <ul class="menu">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#work">个人信息</a></li>
+            <li><a href="#exp">作品</a></li>
+            <li><a href="#contact">联系我</a></li>
+        </ul>
+    </nav>
     <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/impress.js"></script>
     <script>
-        impress().init();
         $(function(){
-            setTimeout(tip,5000);
-            function tip(){
-                $('#tip').css('visibility','hidden');
-            }
-            
-        })
+            function pageH(){
+                var innerH = $(window).height();
+                $('.page').height(innerH);
+            };
+            pageH();
+            $(window).resize(function(){
+                pageH()
+            });
+            $('.sidebar').hover(function(){
+                $('.menu').fadeIn();
+            },function(){
+                $('.menu').fadeOut();
+            });
+            $(function(){
+                $(".menu a").click(function(){
+                    var hr = $(this).attr("href");
+                    var anh = $(hr).offset().top;
+                    $("html,body").stop().animate({scrollTop:anh},500);
+                })
+            });         
+        })      
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
