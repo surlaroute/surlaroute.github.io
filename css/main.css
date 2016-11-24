@@ -10,7 +10,7 @@ body {
     color: #444;
     letter-spacing: 2px;
 }
-a{	color: #444;
+a{	
 	text-decoration: none;
 }
 ul,li {
@@ -136,6 +136,9 @@ p{
 }
 #contact{
 	padding-bottom: 40px;
+}
+#contact a{
+	color: #444;
 }
 @media (max-width: 948px){
 	.homename{
