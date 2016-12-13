@@ -1,0 +1,91 @@
+.page{
+	padding: 0;
+	letter-spacing: 1px;
+	color: #666;
+	font-size: 14px;
+	background-color: #dbebf8;
+}
+header #del{
+	position: absolute;
+	height: 40px;
+	line-height: 40px;
+	bottom: 0;
+	right: 2%;
+	font-size: 14px;
+	color: #fff;
+}
+.content{
+	padding-top: 62px;
+}
+.search-area{
+	padding: 0 14px;
+	width: 100%;
+	height: 56px;
+	line-height: 56px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.search-area .search{
+	width: 85%;
+	height: 30px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	text-indent: 10px;
+	outline: none;
+}
+.search-area .search-btn{
+	border: 0;
+	background: transparent;
+	color: #666;
+	font-size: 14px;
+}
+.top-nav{
+	height: 42px;
+	line-height: 42px;
+	background-color: #fff;
+}
+.top-nav>div{
+	float: left;
+	width: 33.33%;
+	text-align: center;
+}
+.mainbox{
+	padding: 14px;
+	box-sizing: border-box;
+}
+.resource-info{
+	margin-bottom: 22px;
+}
+.resource-info>div{
+	height: 44px;
+	box-sizing: border-box;
+	border-bottom:1px dotted #ccc;
+	background-color: #fff;
+}
+.resource-info .min-head{
+	background-color: #0ba29d;
+	color: #fff;
+	border: 0;
+}
+.tip-l,.tip-r{
+	padding: 0 14px;
+	height: 44px;
+	line-height: 44px;
+}
+.tip-l{
+	float: left;
+}
+.tip-r{
+	float: right;
+}
+.resource-info .date{
+	line-height: 44px;
+	text-align: center;
+	border: 0;
+}
+@media (max-width: 360px){
+	body{
+		font-size: 12px;
+	}
+}

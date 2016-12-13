@@ -1,0 +1,79 @@
+/*  reset  */
+body,ul,li,p,h1,h2,h3,h4,h5,h6,img,br,hr,table,tr,td,dl,dt,dd,form,input,a,img {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family:"Microsoft YaHei",Arial,Helvetica,sans-serifsans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+ul,li {
+	list-style: none;
+}
+img {
+	border: none;
+}
+a {
+	text-decoration: none;
+}
+/*  reset end  */
+.page{
+	width: 100%;
+	background: url(img/homebg.jpg) no-repeat center;
+	background-size: cover;
+}
+form{
+	width: 258px;
+	height: 230px;
+	margin: 0 auto;
+	padding-top: 274px;
+}
+form > div{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 16px;
+}
+form label{
+	float: left;
+	width: 72px;
+	height: 100%;
+	color: #27726e;
+	font-size: 18px;
+	text-align: justify;
+	letter-spacing: 4px;
+}
+.user,.pwd,.code{
+	float: right;
+	width: 186px;
+	height: 100%;
+	text-indent: 10px;
+	outline: none;
+	border: 0;
+	background-color: #d3e9e7;
+	border-radius: 2px;
+}
+.code-pic{
+	float: right;
+	width: 98px;
+	height: 100%;
+	background-color: #0f6461;
+}
+.tip{
+	float: right;
+	width: 88px;
+	color: #27726e;
+	font-size: 12px;
+	text-indent: 4px;
+	border-radius: 2px;
+}
+.submit{
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	font-weight: 700;
+	background-color: #0f6461;
+	border: 0;
+	border-radius: 2px;
+	letter-spacing: 4px;
+}

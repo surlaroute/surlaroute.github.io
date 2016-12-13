@@ -1,0 +1,28 @@
+.page{
+	background: url(img/bg.jpg) no-repeat center;
+	background-size: cover;
+	padding:0;
+}
+.list{
+	position: absolute;
+	top: 35%;
+	width: 100%;
+}
+.list > a{
+	float: left;
+	display: inline-block;
+	width: 33.3333%;
+	box-sizing: border-box;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	overflow: hidden;
+}
+.list a img{
+	max-width: 100%;
+}
+.list .nbr{
+	border-right: 0; 
+}
+.list .nbb{
+	border-bottom: 0;
+}

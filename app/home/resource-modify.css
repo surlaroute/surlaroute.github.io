@@ -1,0 +1,67 @@
+.page{
+	padding: 0;
+}
+header #keep{
+	position: absolute;
+	right: 10px;
+	bottom: 8px;
+	color: #fff;
+	font-size: 14px;
+	letter-spacing: 2px;
+	font-weight: 200;
+}
+.info{
+	padding-top: 70px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ddd;
+	box-sizing: border-box;
+}
+.num,.state{
+	padding: 0 24px;
+	height: 26px;
+	line-height: 26px;
+}
+.num>div{
+	float: left;
+	width: 50%;
+	color: #0ba29d;
+}
+.state>div{
+	float: left;
+	width: 20%;
+}
+.state input:checked{
+	color: #0ba29d;
+}
+.detail{
+	padding: 24px;
+	margin-bottom: 80px;
+}
+.detail .box{
+	margin: 10px 0;
+	height: 36px;
+	line-height: 36px;
+}
+.detail .box label{
+	float: left;
+	width: 20%;
+}
+.box input,.box textarea,.box select{
+	float: right;
+	width: 80%;
+	height: 100%;
+	font-size: 14px;
+	color: #666;
+	text-indent: 10px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	outline: none;
+}
+.detail .box select{
+	text-indent: 6px;
+}
+.detail .box textarea{
+	height: 120px;
+	padding: 10px 0;
+}

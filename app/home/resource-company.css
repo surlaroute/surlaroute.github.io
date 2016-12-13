@@ -1,0 +1,61 @@
+.page{
+	padding-bottom: 0;
+	color: #444;
+}
+header #add,header #keep{
+	position: absolute;
+	right: 10px;
+	bottom: 8px;
+	color: #fff;
+	letter-spacing: 2px;
+	font-weight: 200;
+}
+header #keep{
+	display: none;
+}
+div{
+	box-sizing: border-box;
+}
+.content{
+	padding-top: 20px;
+}
+.cpn{
+	margin-bottom: 10px;
+	height: 60px;
+	line-height: 60px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+.cpn .co-name{
+	float: left;
+	width: 70%;
+	text-indent: 20px;
+	letter-spacing: 2px;
+}
+.cpn .dele,.cpn .modi{
+	float: right;
+	width: 15%;
+	text-align: center;
+	color: #fff;
+	letter-spacing: 2px;
+	text-indent: 2px;
+}
+.cpn .dele{
+	margin-right: -15%;
+	background-color: #5cceb4;
+}
+.cpn .modi{
+	background-color: #11928d;
+}
+.newcpn{
+	padding: 20px 24px;
+	background-color: #dbebf8;
+	box-sizing: border-box;
+	display: none;
+}
+.newcpn input{
+	width: 100%;
+	height: 24px;
+	text-indent: 10px;
+	outline: none;
+}

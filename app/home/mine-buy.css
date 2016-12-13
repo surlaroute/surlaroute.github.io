@@ -1,0 +1,53 @@
+#del{
+	position: absolute;
+	right: 10px;
+	bottom: 8px;
+	color: #fff;
+	letter-spacing: 2px;
+	font-weight: 200;
+}
+.mainbox{
+	padding-top: 6px;
+	box-sizing: border-box;
+}
+.buy-box{
+	padding-bottom: 10px;
+}
+.tip,.date{
+	width: 94%;
+	margin-left:3%;
+	padding: 0 10px;
+	height: 44px;
+	line-height: 44px;
+	box-sizing: border-box;
+	border-bottom:1px dotted #ccc;
+}
+.buy-box .min-head{
+	padding-left: 20px;
+	height: 44px;
+	line-height: 44px;
+	background-color: #0ba29d;
+	color: #fff;
+	border: 0;
+}
+.min-head i{
+	margin-right: 10px;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	color: #f08519;
+	font-weight: 700;
+	font-size: 14px;
+	background-color: #fff;
+	border-radius: 50%;
+	display: inline-block;
+}
+.tip i{
+	padding-right: 4px;
+}
+.tip-l{
+	float: left;
+}
+.tip-r{
+	float: right;
+}
