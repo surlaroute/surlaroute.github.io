@@ -63,9 +63,14 @@
 				$('#keep').show()
 			});
 			$('.cpn').on('click','.dele',function(){
-				$(this).parent().animate({'height':'0'},100,function(){
-					$(this).remove()
-				})
+				var que = confirm('确定要删除吗？');
+				if(que){
+					$(this).parent().animate({'height':'0'},100,function(){
+						$(this).remove()
+					})
+				}else{
+					$(this).animate({'margin-right':'-15%'})
+				}
 			});
 			$('.content').on('swipeleft','.cpn',function(){
 		    	$(this).find('.dele').animate({'margin-right':'0'});

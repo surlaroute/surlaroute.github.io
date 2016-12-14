@@ -1,5 +1,6 @@
 .page{
-	padding: 0;
+	padding-top: 62px;
+	padding-bottom: 0;
 	letter-spacing: 1px;
 	color: #666;
 	font-size: 14px;
@@ -15,30 +16,34 @@ header #del{
 	color: #fff;
 }
 .content{
-	padding-top: 62px;
+	padding: 13px 14px;
+	height: 56px;
+	box-sizing: border-box;
 }
 .search-area{
-	padding: 0 14px;
+	margin: 0 auto;
 	width: 100%;
-	height: 56px;
-	line-height: 56px;
-	box-sizing: border-box;
-	overflow: hidden;
-}
-.search-area .search{
-	width: 85%;
 	height: 30px;
-	box-sizing: border-box;
+	background: #fff;
 	border: 1px solid #ddd;
 	border-radius: 2px;
-	text-indent: 10px;
+}
+.search-area .search{
+	float: left;
+	width: 90%;
+	height: 30px;
+	border: 0;
 	outline: none;
+	text-indent: 10px;
 }
 .search-area .search-btn{
+	float: right;
+	height: 28px;
+	line-height: 28px;
+	font-size: 14px;
+	color: #888;
 	border: 0;
 	background: transparent;
-	color: #666;
-	font-size: 14px;
 }
 .top-nav{
 	height: 42px;
