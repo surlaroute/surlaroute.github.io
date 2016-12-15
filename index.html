@@ -1,93 +1,41 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1"> 
-    <title>朱思琦的简历</title>
-    <link rel="shortcut icon" href="img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-</head>
-<body>
-    <div class="page" id="home">
-        <img src="img/home.png" alt="Sur La Route">
-        <p class="homename">Sur La Route</p>
-        <p class="homeinfo">- 做有趣的事 -</p>
-    </div>
-    <div class="page" id="work">
-        <img src="img/pic.jpeg" class="mypic">
-        <h1>朱思琦</h1>
-        <a href="app/index.html">测试</a>
-        <p class="myage">24岁</p>
-        <p>求职意向：前端工程师</p>
-        <p class="hobby">喜欢看书敲代码听音乐，沉迷学习，日渐消瘦。</p>
-        <p class="tel">15576029193</p>
-        <h1 class="skill">专业技能</h1>
-        <p>HTML5 CSS JavaScript</p>
-        <p>jQuery Bootstrap</p>
-    </div>
-    <div class="page" id="exp">
-        <h1 class="mywork">作品</h1>
-        <p class="works">
-            <a href="work/tianti/index.html" target="_blank" class="work0"><span>仿天梯数据-响应式</span></a>
-            <a href="work/duitang/index.html" target="_blank" class="work1"><span>仿堆糖网首页</span>
-            </a>
-            <a href="work/bilibili/index.html" target="_blank" class="work2"><span>仿bilibili首页</span>
-            </a>
-        </p>    
-    </div>
-    <div class="page" id="contact">
-        <h1 class="myexp">教育经历</h1>
-        <p>2010.09-2014.06</p>
-        <p>湖南吉首大学</p>
-        <p>护理学</p>
-        <p>全日制本科</p>
-        <h1>工作经历</h1>
-        <p>2015.04-2016.04</p>
-        <p>湖南省岳阳市一人民医院</p>
-        <p>临床护士</p>
-        <p>2016.07-2016.10</p>
-        <p>长沙温思顿英语</p>
-        <p>行政</p>
-        <h1>三百六十行，行行出码农。<br>
-        若您能给我一个机会，我会证明给您看我能做到。<br>
-        学习前端是一辈子的事，快把我收进碗里吧！</h1>
-        <p class="tel">TEL:15576029193</p>
-        <a href="mailto:foreverymorning@163.com">foreverymorning@163.com</a>
-    </div>
-    <nav class="sidebar">
-        <div class="menubtn"></div>
-        <ul class="menu">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#work">个人信息</a></li>
-            <li><a href="#exp">作品</a></li>
-            <li><a href="#contact">联系我</a></li>
-        </ul>
-    </nav>
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script>
-        $(function(){
-            function pageH(){
-                var innerH = $(window).height();
-                $('.page').height(innerH);
-            };
-            pageH();
-            $(window).resize(function(){
-                pageH()
-            });
-            $('.sidebar').hover(function(){
-                $('.menu').fadeIn();
-            },function(){
-                $('.menu').fadeOut();
-            });
-            $(function(){
-                $(".menu a").click(function(){
-                    var hr = $(this).attr("href");
-                    var anh = $(hr).offset().top;
-                    $("html,body").stop().animate({scrollTop:anh},500);
-                })
-            });         
-        })      
-    </script>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>田螺</title>
+		<link rel="stylesheet" type="text/css" href="main.css">
+	 </head>
+	<body>
+		<div class="page">
+			<form action="home/home.html" method="">
+				<div>
+					<label>帐&nbsp;&nbsp;号</label>
+					<input type="text" name="" id="" class="user" placeholder="请输入登录用户名">
+				</div>
+				<div>
+					<label>密&nbsp;&nbsp;码</label>
+					<input type="password" name="" id="" class="pwd" placeholder="请输入登录密码">
+				</div>
+				<div>
+					<label>验证码</label>
+					<input type="text" name="" id="" class="code" placeholder="请输入验证码">
+				</div>
+				<div>
+					<div class="tip">看不清换一张？</div>
+					<div class="code-pic"></div>
+				</div>
+				<div>
+					<input type="submit" name="" value="登录" id="" class="submit">
+				</div>			
+			</form>
+		</div>
+	</body>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var myh = $(window).height();
+			$('.page').height(myh)
+		})
+	</script>
 </html>

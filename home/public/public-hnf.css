@@ -1,0 +1,89 @@
+/*  reset  */
+body,ul,li,p,h1,h2,h3,h4,h5,h6,img,br,hr,table,tr,td,dl,dt,dd,form,input,a,img {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family:"Microsoft YaHei",Arial,Helvetica,sans-serifsans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+ul,li {
+	list-style: none;
+}
+img {
+	border: none;
+}
+a {
+	text-decoration: none;
+}
+/*  reset end  */
+.page{
+	position: relative;
+	width: 100%;
+	padding-top: 62px;
+	padding-bottom: 48px;
+}
+header{
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	width: 100%;
+	height: 62px;
+	background-color: #3c3b40;
+}
+header #back{
+	position: absolute;
+	height: 40px;
+	line-height: 40px;
+	bottom: 0;
+	left: 2%;
+	color: #fff;
+}
+header h1{
+	position: absolute;
+	height: 40px;
+	line-height: 40px;
+	bottom: 0;
+	left: 50%;
+	margin-left: -40px;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 2px;
+	font-weight: lighter;
+}
+.menu{
+	position: fixed;
+	z-index: 100;
+	bottom: 0;
+	width: 100%;
+	box-sizing: border-box;
+	border-top: 1px solid #ccc;
+	background: #fff;
+}
+.menu>a{
+	display: block;
+	float: left;
+	width: 25%;
+	padding: 4px;
+	color: #444;
+	box-sizing: border-box;
+	text-align: center;
+}
+.menu>a.on{
+	color: #0e918c;
+}
+.menu>a i{
+	font-size: 22px;
+}
+.menu>a p{
+	font-size: 12px;
+}
+/* jquery mobile loading 样式隐藏 */
+.ui-loader-default{ display:none}
+.ui-mobile-viewport{ border:none;}
+.ui-page {padding: 0; margin: 0; outline: 0} 
+@media (max-width: 360px){
+	body{
+		font-size: 12px;
+	}
+}
