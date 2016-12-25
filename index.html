@@ -76,10 +76,10 @@
 				X = moveEndX - startX,
 				Y = moveEndY - startY;
 				if( Math.abs(X) > Math.abs(Y) && X > 0 ) {
-					$(this).find('.btns').stop().animate({'right':-50})
+					$(this).find('.btns').stop().animate({'right':-50},500)
 				}
 				else if( Math.abs(X) > Math.abs(Y) && X < 0 ) {
-					$(this).find('.btns').stop().animate({'right':0})
+					$(this).find('.btns').stop().animate({'right':0},500)
 				}
 				else if( Math.abs(Y) > Math.abs(X) && Y > 0 ) {
 				alert("top 2 bottom");
