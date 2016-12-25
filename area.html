@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>田螺家居-建筑面积</title>
+		<link rel="stylesheet" type="text/css" href="../public/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../public/public-hnf.css">
+<!-- 		<link rel="stylesheet" type="text/css" href="setting.css">
+ -->		<style type="text/css">
+			.page{
+	padding-bottom: 0;
+	color: #444;
+}
+div{
+	box-sizing: border-box;
+}
+.content{
+	padding-top: 20px;
+}
+.cpn{
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 10px;
+	height: 60px;
+	line-height: 60px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	box-sizing: border-box;
+}
+.cpn .co-name{
+	float: left;
+	width: 70%;
+	text-indent: 20px;
+	letter-spacing: 2px;
+}
+.dele,.modi,.set{
+	float: right;
+	width: 15%;
+	text-align: center;
+	color: #fff;
+	letter-spacing: 2px;
+	text-indent: 2px;
+}
+.dele{
+	margin-right: -15%;
+	background-color: #5cceb4;
+}
+.modi{
+	background-color: #11928d;
+}
+.set{
+	background-color: #ea5b23;
+}
+.newcpn{
+	padding: 20px 24px;
+	background-color: #e6e6e6;
+	box-sizing: border-box;
+	display: none;
+}
+.newcpn input{
+	width: 100%;
+	height: 24px;
+	text-indent: 10px;
+	outline: none;
+	border: 1px solid #ddd;
+}
+		</style>
+	 </head>
+	<body>
+		<div class="page">
+			<header>
+				<a id="back" href="javascript:history.go(-1)"><i class="fa fa-chevron-left"></i> 返 回</a>
+				<h1>建筑面积</h1>
+				<a href="###" id="add">新增</a>
+				<a href="###" id="keep">保存</a>
+			</header>
+			<div class="content">
+				<div class="cpn">
+					<div class="co-name">60m²以下</div>
+					<div class="dele">删除</div>
+					<div class="modi">修改</div>
+				</div>
+				<div class="cpn">
+					<div class="co-name">70-80m²</div>
+					<div class="dele">删除</div>
+					<div class="modi">修改</div>
+				</div>
+				<div class="cpn">
+					<div class="co-name">80-90m²</div>
+					<div class="dele">删除</div>
+					<div class="modi">修改</div>
+				</div>
+				<div class="cpn">
+					<div class="co-name">90-100m²</div>
+					<div class="dele">删除</div>
+					<div class="modi">修改</div>
+				</div>
+				<div class="cpn">
+					<div class="co-name">100m²以上</div>
+					<div class="dele">删除</div>
+					<div class="modi">修改</div>
+				</div>
+				<div class="cpn">
+					<div class="co-name">无</div>
+					<div class="dele">删除</div>
+					<div class="modi">修改</div>
+				</div>
+			</div>
+			<div class="newcpn">
+				<input id="cpn-name" type="text" name="" placeholder="请输入建筑面积">
+			</div>
+		</div>
+	</body>
+	<script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var startX,startY,moveEndX,moveEndY;
+			$('.cpn').on('touchstart',function(e){
+				e.preventDefault();
+				startX = e.originalEvent.changedTouches[0].pageX;
+				startY = e.originalEvent.changedTouches[0].pageY;
+			});
+			$(".cpn").on("touchmove", function(e) {
+				e.preventDefault();
+				moveEndX = e.originalEvent.changedTouches[0].pageX,
+				moveEndY = e.originalEvent.changedTouches[0].pageY,
+				X = moveEndX - startX,
+				Y = moveEndY - startY;
+				if( Math.abs(X) > Math.abs(Y) && X > 0 ) {
+					$(this).find('.dele').animate({'margin-right':'-15%'})
+				}
+				else if( Math.abs(X) > Math.abs(Y) && X < 0 ) {
+					$(this).find('.dele').animate({'margin-right':0})
+				}
+				else if( Math.abs(Y) > Math.abs(X) && Y > 0 ) {
+				alert("top 2 bottom");
+				}
+				else if( Math.abs(Y) > Math.abs(X) && Y < 0 ) {
+				alert("bottom 2 top");
+				}
+				else{
+				alert("just touch");
+				}
+			});
+		})
+	</script>
+</html>
