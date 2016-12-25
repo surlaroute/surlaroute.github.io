@@ -127,21 +127,21 @@ div{
 				moveEndY = e.originalEvent.changedTouches[0].pageY,
 				X = moveEndX - startX,
 				Y = moveEndY - startY;
-				if( Math.abs(X) > Math.abs(Y) && X > 0 ) {
-					$(this).find('.dele').animate({'margin-right':'-15%'})
-				}
-				else if( Math.abs(X) > Math.abs(Y) && X < 0 ) {
-					$(this).find('.dele').animate({'margin-right':0})
-				}
-				else if( Math.abs(Y) > Math.abs(X) && Y > 0 ) {
-				alert("top 2 bottom");
-				}
-				else if( Math.abs(Y) > Math.abs(X) && Y < 0 ) {
-				alert("bottom 2 top");
-				}
-				else{
-				alert("just touch");
-				}
+				if( X > 0 ) {
+alert("left 2 right");
+}
+else if( X < 0 ) {
+alert("right 2 left");
+}
+else if( Y > 0) {
+alert("top 2 bottom");
+}
+else if( Y < 0 ) {
+alert("bottom 2 top");
+}
+else{
+alert("just touch");
+}
 			});
 		})
 	</script>
