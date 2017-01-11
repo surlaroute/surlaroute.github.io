@@ -46,6 +46,8 @@
 .set{
 	background-color: #ea5b23;
 }
+.hairlines li{     position: relative;     margin-bottom: 20px;     border:none; }
+.hairlines li:after{     content: '';     position: absolute;     top: 0;     left: 0;     border: 1px solid #000;     -webkit-box-sizing: border-box;     box-sizing: border-box;     width: 200%;     height: 200%;     -webkit-transform: scale(0.5);     transform: scale(0.5);     -webkit-transform-origin: left top;     transform-origin: left top; }
 
 		</style>
 	 </head>
@@ -78,23 +80,45 @@
 				<div class="modi">修改</div>
 			</div>
 		</div>
+		<div class="cpn">
+			<div class="co-name">60m²以下</div>
+			<div class="btns">
+				<div class="dele">删除</div>
+				<div class="modi">修改</div>
+			</div>
+		</div>
+		<div class="cpn">
+			<div class="co-name">60m²以下</div>
+			<div class="btns">
+				<div class="dele">删除</div>
+				<div class="modi">修改</div>
+			</div>
+		</div>
+		<ul class="hairlines">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
 
+		</ul>
+		<li style="border: 1px solid #000"></li>
 	</body>
 	<script src="jquery-3.1.1.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
+			if(window.devicePixelRatio && devicePixelRatio >= 2){
+    document.querySelector('ul').className = 'hairlines';
+}
+
 			var startX,startY,moveEndX,moveEndY;
 			$('.cpn').on('touchstart',function(e){
+				e.preventDefault();
 				startX = e.originalEvent.changedTouches[0].pageX;
 				startY = e.originalEvent.changedTouches[0].pageY;
 			});
 			$(".cpn").on("touchmove", function(e) {
-				var btnsW = $(this).find('.btns').outerWidth();
-				var w = startX<0?startX*-1:startX;     //x轴的滑动值
-				var h = startY<0?startY*-1:startY;     //y轴的滑动值
-				if(w>h){                //如果是在x轴中滑动
-				   e.preventDefault();
-				}
+				e.preventDefault();
 				moveEndX = e.originalEvent.changedTouches[0].pageX,
 				moveEndY = e.originalEvent.changedTouches[0].pageY,
 				X = moveEndX - startX,
