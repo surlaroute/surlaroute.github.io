@@ -12,10 +12,11 @@
 	margin-bottom: 10px;
 	height: 60px;
 	line-height: 60px;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
+	/*border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;*/
 	box-sizing: border-box;
 }
+.cpn:after{     content: '';     position: absolute;     top: 0;     left: 0;     border: 1px solid #ddd;     -webkit-box-sizing: border-box;     box-sizing: border-box;     width: 200%;     height: 200%;     -webkit-transform: scale(0.5);     transform: scale(0.5);     -webkit-transform-origin: left top;     transform-origin: left top; }
 .cpn .co-name{
 	width: 100%;
 	text-indent: 20px;
@@ -129,15 +130,15 @@
 				else if( Math.abs(X) > Math.abs(Y) && X < 0 ) {
 					$(this).find('.btns').stop().animate({'right':0},200)
 				}
-				else if( Math.abs(Y) > Math.abs(X) && Y > 0 ) {
-				alert("top 2 bottom");
-				}
-				else if( Math.abs(Y) > Math.abs(X) && Y < 0 ) {
-				alert("bottom 2 top");
-				}
-				else{
-				alert("just touch");
-				}
+				// else if( Math.abs(Y) > Math.abs(X) && Y > 0 ) {
+				// alert("top 2 bottom");
+				// }
+				// else if( Math.abs(Y) > Math.abs(X) && Y < 0 ) {
+				// alert("bottom 2 top");
+				// }
+				// else{
+				// alert("just touch");
+				// }
 			});
 		})
 	</script>
