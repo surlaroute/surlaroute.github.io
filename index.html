@@ -142,9 +142,13 @@
 
 			var startX,startY,moveEndX,moveEndY;
 			$('.cpn').on('touchstart',function(e){
-				e.preventDefault();
 				startX = e.originalEvent.changedTouches[0].pageX;
 				startY = e.originalEvent.changedTouches[0].pageY;
+				var w = startX<0?startX*-1:startX;     //x轴的滑动值
+		var h = startY<0?startY*-1:startY;     //y轴的滑动值
+		if(w>h){                //如果是在x轴中滑动
+		   e.preventDefault();
+		}
 			});
 			$(".cpn").on("touchmove", function(e) {
 				var w = startX<0?startX*-1:startX;     //x轴的滑动值
